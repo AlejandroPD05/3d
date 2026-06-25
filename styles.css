@@ -1,0 +1,256 @@
+/* ==========================================
+   RESET Y CONFIGURACIÓN BASE
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: radial-gradient(circle at center, #110924 0%, #05020c 100%);
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+}
+
+/* Contenedor del WebGL Canvas */
+#canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Capa de Interfaz por encima del Canvas */
+.ui-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none; /* Permite interactuar con OrbitControls a través de las zonas vacías */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 3rem;
+}
+
+/* ==========================================
+   TIPOGRAFÍA Y TEXTOS PRINCIPALES
+   ========================================== */
+.main-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    background: linear-gradient(to bottom, rgba(17, 9, 36, 0.4), rgba(0, 0, 0, 0));
+    padding: 1.5rem;
+    border-radius: 20px;
+    backdrop-filter: blur(4px);
+}
+
+.main-header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-shadow: 0 0 20px rgba(217, 43, 75, 0.6);
+    margin-bottom: 0.5rem;
+    color: #fff0f3;
+}
+
+.main-header p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: #ffccd5;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+}
+
+/* ==========================================
+   BOTÓN DE AUDIO PREMIUM
+   ========================================== */
+.audio-btn {
+    position: fixed;
+    top: 3rem;
+    right: 3rem;
+    pointer-events: auto;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 192, 203, 0.2);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    color: #ffccd5;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.audio-btn:hover {
+    background: rgba(217, 43, 75, 0.2);
+    border-color: rgba(217, 43, 75, 0.5);
+    box-shadow: 0 0 15px rgba(217, 43, 75, 0.4);
+    transform: translateY(-2px);
+}
+
+.audio-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ==========================================
+   TARJETA INTERACTIVA (GLASSMORPHISM 3D)
+   ========================================== */
+.card-container {
+    position: relative;
+    width: 380px;
+    height: 220px;
+    margin: 0 auto;
+    perspective: 1500px;
+    pointer-events: auto;
+}
+
+.romantic-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+}
+
+.romantic-card.is-open {
+    transform: rotateY(-180deg);
+}
+
+.card-front, .card-inside {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+}
+
+/* Cara frontal (Cerrada) */
+.card-front {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%);
+    backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.seal {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ff3366 0%, #b30033 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 15px rgba(255, 51, 102, 0.5), inset 0 2px 4px rgba(255,255,255,0.4);
+    animation: pulse 2s infinite;
+}
+
+.seal-heart {
+    font-size: 1.8rem;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.click-hint {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ffccd5;
+    opacity: 0.8;
+}
+
+/* Cara Interior (Abierta) */
+.card-inside {
+    background: linear-gradient(135deg, rgba(15, 8, 28, 0.9) 0%, rgba(35, 12, 30, 0.95) 100%);
+    backdrop-filter: blur(20px);
+    transform: rotateY(180deg);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.card-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+    color: #ffccd5;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(255, 192, 203, 0.2);
+    padding-bottom: 0.3rem;
+}
+
+.card-message {
+    background: transparent;
+    border: none;
+    color: #ffe5ec;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    resize: none;
+    height: 110px;
+    margin-top: 0.5rem;
+    font-weight: 300;
+    scrollbar-width: none;
+}
+
+.card-message:focus {
+    outline: none;
+}
+
+.card-footer {
+    text-align: right;
+    font-size: 0.8rem;
+    font-style: italic;
+    color: #ff4d6d;
+    font-weight: 500;
+}
+
+/* ==========================================
+   ANIMACIONES SUTILES
+   ========================================== */
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 15px rgba(255, 51, 102, 0.4); }
+    50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(255, 51, 102, 0.8); }
+    100% { transform: scale(1); box-shadow: 0 0 15px rgba(255, 51, 102, 0.4); }
+}
+
+/* Adaptación para pantallas móviles */
+@media (max-width: 768px) {
+    .ui-layer { padding: 1.5rem; }
+    .main-header h1 { font-size: 1.8rem; }
+    .main-header p { font-size: 0.9rem; }
+    .audio-btn { top: auto; bottom: 3rem; left: 1.5rem; right: auto; }
+    .card-container { width: 100%; max-width: 320px; height: 240px; }
+    .card-message { height: 130px; }
+}

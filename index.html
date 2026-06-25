@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para el Amor de mi Vida - Ramo 3D Premium</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="canvas-container"></div>
+
+    <div class="ui-layer">
+        <header class="main-header">
+            <h1 class="fade-in-text">Para el amor de mi vida</h1>
+            <p class="fade-in-subtext">Gracias por llenar mi mundo de color. Te amo 💚</p>
+        </header>
+
+        <button id="audio-toggle" class="audio-btn" aria-label="Alternar Música">
+            <svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            <svg class="icon-pause hidden" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+            <span class="btn-text">Música Ambiental</span>
+        </button>
+
+        <div class="card-container">
+            <div id="romantic-card" class="romantic-card">
+                <div class="card-front">
+                    <div class="seal">
+                        <span class="seal-heart">❤</span>
+                    </div>
+                    <p class="click-hint">Haz clic para abrir la tarjeta</p>
+                </div>
+                <div class="card-inside">
+                    <div class="card-content">
+                        <h2 class="card-title">Eternamente Tuyo</h2>
+                        <textarea class="card-message" spellcheck="false">Eres el destello más hermoso en mi universo. Cada pétalo de este ramo digital representa un momento inolvidable a tu lado y una promesa de amor infinito. Gracias por existir y por ser mi hogar en la distancia.</textarea>
+                        <div class="card-footer">Con todo mi amor ✨</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="bg-music" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
