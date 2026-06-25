@@ -1,6 +1,3 @@
-/* ==========================================
-   RESET Y CONFIGURACIÓN BASE
-   ========================================== */
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +14,6 @@ body, html {
     color: #ffffff;
 }
 
-/* Contenedor del WebGL Canvas */
 #canvas-container {
     position: absolute;
     top: 0;
@@ -27,7 +23,6 @@ body, html {
     z-index: 1;
 }
 
-/* Capa de Interfaz por encima del Canvas */
 .ui-layer {
     position: absolute;
     top: 0;
@@ -35,16 +30,13 @@ body, html {
     width: 100%;
     height: 100%;
     z-index: 10;
-    pointer-events: none; /* Permite interactuar con el 3D en áreas vacías */
+    pointer-events: none;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 3rem;
 }
 
-/* ==========================================
-   TIPOGRAFÍA Y TEXTOS PRINCIPALES
-   ========================================== */
 .main-header {
     text-align: center;
     max-width: 600px;
@@ -73,48 +65,6 @@ body, html {
     text-shadow: 0 2px 8px rgba(0,0,0,0.8);
 }
 
-/* ==========================================
-   BOTÓN DE AUDIO PREMIUM
-   ========================================== */
-.audio-btn {
-    position: fixed;
-    top: 3rem;
-    right: 3rem;
-    pointer-events: auto;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 192, 203, 0.2);
-    padding: 0.75rem 1.5rem;
-    border-radius: 50px;
-    color: #ffccd5;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    backdrop-filter: blur(15px);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.audio-btn:hover {
-    background: rgba(217, 43, 75, 0.2);
-    border-color: rgba(217, 43, 75, 0.5);
-    box-shadow: 0 0 15px rgba(217, 43, 75, 0.4);
-    transform: translateY(-2px);
-}
-
-.audio-btn svg {
-    width: 18px;
-    height: 18px;
-    fill: currentColor;
-}
-
-.hidden {
-    display: none !important;
-}
-
-/* ==========================================
-   TARJETA INTERACTIVA (GLASSMORPHISM 3D)
-   ========================================== */
 .card-container {
     position: relative;
     width: 380px;
@@ -147,7 +97,6 @@ body, html {
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
 }
 
-/* Cara frontal (Cerrada) */
 .card-front {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%);
     backdrop-filter: blur(20px);
@@ -184,7 +133,6 @@ body, html {
     opacity: 0.8;
 }
 
-/* Cara Interior (Abierta) */
 .card-inside {
     background: linear-gradient(135deg, rgba(15, 8, 28, 0.95) 0%, rgba(35, 12, 30, 0.98) 100%);
     backdrop-filter: blur(20px);
@@ -236,21 +184,16 @@ body, html {
     font-weight: 500;
 }
 
-/* ==========================================
-   ANIMACIONES SUTILES
-   ========================================== */
 @keyframes pulse {
     0% { transform: scale(1); box-shadow: 0 0 15px rgba(255, 51, 102, 0.4); }
     50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(255, 51, 102, 0.7); }
     100% { transform: scale(1); box-shadow: 0 0 15px rgba(255, 51, 102, 0.4); }
 }
 
-/* Adaptación Responsiva */
 @media (max-width: 768px) {
     .ui-layer { padding: 1.5rem; }
     .main-header h1 { font-size: 1.8rem; }
     .main-header p { font-size: 0.9rem; }
-    .audio-btn { top: auto; bottom: 3rem; left: 1.5rem; right: auto; }
     .card-container { width: 100%; max-width: 320px; height: 240px; }
     .card-message { height: 130px; }
 }
